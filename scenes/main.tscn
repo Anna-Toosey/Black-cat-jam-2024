@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://c1a46qsp40wo3"]
+[gd_scene load_steps=3 format=3 uid="uid://c1a46qsp40wo3"]
 
-[ext_resource type="PackedScene" uid="uid://cyt61minkmxsm" path="res://scenes/cats/cat.tscn" id="1_jg0ig"]
+[ext_resource type="Script" path="res://scenes/main.gd" id="1_6m7ul"]
+[ext_resource type="PackedScene" uid="uid://cyt61minkmxsm" path="res://scenes/player/player.tscn" id="1_jg0ig"]
 
 [node name="Main" type="Node2D"]
+script = ExtResource("1_6m7ul")
 
-[node name="Cat" parent="." instance=ExtResource("1_jg0ig")]
-position = Vector2(231, 116)
+[node name="Player" parent="." instance=ExtResource("1_jg0ig")]
+position = Vector2(128, 132)

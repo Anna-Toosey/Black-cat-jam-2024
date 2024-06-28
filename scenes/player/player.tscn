@@ -1,18 +1,30 @@
-[gd_scene load_steps=5 format=3 uid="uid://cyt61minkmxsm"]
+[gd_scene load_steps=6 format=3 uid="uid://cyt61minkmxsm"]
 
-[ext_resource type="Script" path="res://scenes/cats/player.gd" id="1_lxwqq"]
+[ext_resource type="Script" path="res://scenes/player/player.gd" id="1_lxwqq"]
 [ext_resource type="Texture2D" uid="uid://dqs8f8ar0v2q0" path="res://assets/sprites/test/cat_test.png" id="1_ohwy6"]
-[ext_resource type="Script" path="res://scenes/cats/aiming_cursor.gd" id="3_vh80j"]
 [ext_resource type="Texture2D" uid="uid://drxa2ca0oliks" path="res://assets/sprites/test/yarn_ball_test.png" id="4_bfwep"]
+[ext_resource type="Script" path="res://scenes/player/power_bar.gd" id="5_60km0"]
+
+[sub_resource type="GDScript" id="GDScript_cutmw"]
 
 [node name="Player" type="Node2D"]
 script = ExtResource("1_lxwqq")
+aiming = true
 
 [node name="AimingCursor" type="Node2D" parent="."]
-script = ExtResource("3_vh80j")
+script = SubResource("GDScript_cutmw")
 
 [node name="CatSprite" type="Sprite2D" parent="."]
 texture = ExtResource("1_ohwy6")
 
 [node name="YarnSprite" type="Sprite2D" parent="."]
 texture = ExtResource("4_bfwep")
+
+[node name="PowerBar" type="ProgressBar" parent="."]
+visible = false
+offset_left = -57.0
+offset_top = -43.0
+offset_right = 57.0
+offset_bottom = -30.0
+show_percentage = false
+script = ExtResource("5_60km0")
