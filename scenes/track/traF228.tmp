@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bv5aa7ngemdfq"]
+
+[ext_resource type="Script" path="res://scenes/track/track.gd" id="1_ntdkl"]
+[ext_resource type="Texture2D" uid="uid://dl6p4w3c24lpm" path="res://assets/sprites/test/track_test.png" id="1_qwrbx"]
+
+[node name="Track" type="Area2D"]
+script = ExtResource("1_ntdkl")
+
+[node name="TrackCollider" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(110, 135, 118, 135, 119, 137, 141, 137, 178, 137, 209, 122, 232, 98, 249, 86, 278, 75, 301, 75, 318, 79, 332, 91, 347, 107, 348, 117, 363, 144, 367, 150, 397, 164, 411, 169, 419, 177, 420, 191, 418, 202, 416, 208, 416, 223, 423, 237, 428, 251, 429, 254, 429, 260, 429, 280, 382, 280, 382, 289, 443, 289, 442, 50, 78, 41, 75, 266, 382, 280, 384, 245, 382, 228, 387, 216, 383, 208, 370, 203, 356, 198, 309, 145, 290, 128, 268, 128, 252, 138, 228, 149, 219, 153, 200, 163, 168, 183, 162, 185, 137, 185, 130, 182, 123, 179, 110, 179, 76, 179, 77, 131)
+
+[node name="TrackTest" type="Sprite2D" parent="."]
+position = Vector2(271, 167)
+texture = ExtResource("1_qwrbx")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

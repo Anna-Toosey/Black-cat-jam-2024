@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://dcnh3l82vl7ne"]
+
+[ext_resource type="Script" path="res://temporary_movement.gd" id="1_68aip"]
+[ext_resource type="Texture2D" uid="uid://drxa2ca0oliks" path="res://assets/sprites/test/yarn_ball_test.png" id="1_v2ieq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lhg3s"]
+radius = 4.0
+
+[node name="Yarn" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("1_68aip")
+
+[node name="YarnCollider" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_lhg3s")
+one_way_collision_margin = 0.0
+
+[node name="YarnBallTest" type="Sprite2D" parent="."]
+texture = ExtResource("1_v2ieq")
