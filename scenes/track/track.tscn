@@ -3,7 +3,8 @@
 [ext_resource type="Script" path="res://scenes/track/track.gd" id="1_ntdkl"]
 [ext_resource type="Texture2D" uid="uid://dl6p4w3c24lpm" path="res://assets/sprites/test/track_test.png" id="1_qwrbx"]
 
-[node name="Track" type="Area2D"]
+[node name="Track" type="Area2D" groups=["track"]]
+collision_mask = 2
 script = ExtResource("1_ntdkl")
 
 [node name="TrackCollider" type="CollisionPolygon2D" parent="."]
