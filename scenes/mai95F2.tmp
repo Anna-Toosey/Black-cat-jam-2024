@@ -1,7 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://c1a46qsp40wo3"]
+[gd_scene load_steps=12 format=3 uid="uid://c1a46qsp40wo3"]
 
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_bf1pa"]
+[ext_resource type="PackedScene" uid="uid://cyt61minkmxsm" path="res://scenes/cats/cat.tscn" id="1_jg0ig"]
 [ext_resource type="PackedScene" uid="uid://bv5aa7ngemdfq" path="res://scenes/track/track.tscn" id="2_20unx"]
+[ext_resource type="PackedScene" uid="uid://dcnh3l82vl7ne" path="res://scenes/yarn/yarn.tscn" id="2_e7cld"]
 [ext_resource type="PackedScene" uid="uid://6d5et57ymnkr" path="res://scenes/track/finish.tscn" id="4_bvwbf"]
 [ext_resource type="PackedScene" uid="uid://buns2370nmtpv" path="res://scenes/player.tscn" id="6_64bo1"]
 [ext_resource type="Script" path="res://scenes/state_managers/game_state_machine.gd" id="7_jpnjc"]
@@ -16,6 +18,13 @@ script = ExtResource("1_bf1pa")
 [node name="Track" parent="." instance=ExtResource("2_20unx")]
 position = Vector2(265, 163)
 collision_mask = 2
+
+[node name="Yarn" parent="." instance=ExtResource("2_e7cld")]
+position = Vector2(263, 105)
+
+[node name="Cat" parent="." instance=ExtResource("1_jg0ig")]
+position = Vector2(231, 116)
+aiming = true
 
 [node name="Finish" parent="." instance=ExtResource("4_bvwbf")]
 position = Vector2(403, 256.7)
@@ -44,6 +53,10 @@ state = 2
 [node name="GameEndState" type="Node" parent="GameStateMachine"]
 script = ExtResource("11_rs5y5")
 state = 3
+
+[node name="GameStateLabel" type="Label" parent="GameStateMachine"]
+offset_right = 40.0
+offset_bottom = 23.0
 
 [node name="UI" type="Control" parent="."]
 layout_mode = 3
