@@ -1,7 +1,6 @@
 class_name GameStateMachine
 extends Node
 
-@onready var game_state_label = $GameStateLabel
 @export var initial_state: GameState
 var current_state: GameState
 var states := {}
@@ -15,9 +14,6 @@ func init() -> void:
 	if initial_state:
 		initial_state.enter()
 		current_state = initial_state
-
-func _process(delta):
-	game_state_label.text = str(current_state.name)
 
 func on_input(event: InputEvent) -> void:
 	if current_state:

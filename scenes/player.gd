@@ -4,7 +4,7 @@ extends Node2D
 @onready var power_bar = $PowerBar
 @onready var yarn_sprite = $YarnSprite
 
-@export var aiming: bool = false
+var aiming: bool = false
 
 var pivot_position: Vector2
 var cursor_position: Vector2
@@ -63,5 +63,4 @@ func _input(event):
 		yarn_sprite.global_position = position
 
 		power = 0
-		
 		switch_player_turn.emit()

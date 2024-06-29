@@ -45,10 +45,6 @@ state = 2
 script = ExtResource("11_rs5y5")
 state = 3
 
-[node name="GameStateLabel" type="Label" parent="GameStateMachine"]
-offset_right = 40.0
-offset_bottom = 23.0
-
 [node name="UI" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
