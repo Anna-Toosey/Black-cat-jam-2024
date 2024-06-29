@@ -17,6 +17,8 @@ var power: float = 0
 var power_direction: int = 1
 @export var power_up_speed: int = 20
 
+signal switch_player_turn
+
 func _process(delta):
 	if not aiming:
 		return
@@ -61,4 +63,5 @@ func _input(event):
 		yarn_sprite.global_position = position
 
 		power = 0
-		aiming = true
+		
+		switch_player_turn.emit()
