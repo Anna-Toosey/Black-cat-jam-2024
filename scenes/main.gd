@@ -1,6 +1,10 @@
 extends Node2D
 
+@onready var game_state_machine: GameStateMachine = $GameStateMachine as GameStateMachine
 @onready var player = $Player
+
+func _ready():
+	game_state_machine.init()
 
 func _process(_delta):
 	queue_redraw()
