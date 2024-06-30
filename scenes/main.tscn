@@ -15,7 +15,6 @@ script = ExtResource("1_bf1pa")
 
 [node name="Track" parent="." instance=ExtResource("2_20unx")]
 position = Vector2(265, 163)
-collision_mask = 2
 
 [node name="Finish" parent="." instance=ExtResource("4_bvwbf")]
 position = Vector2(403, 256.7)
