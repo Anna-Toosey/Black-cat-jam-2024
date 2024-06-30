@@ -1,7 +1,7 @@
 extends GameState
 
 func enter():
-	pass
+	print("player 1 wins")
 	
 func exit():
 	pass
