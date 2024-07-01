@@ -11,11 +11,11 @@ func _process(_delta):
 	queue_redraw()
 
 func _draw():
-	if player_one.aiming and player_one.pivot_position.distance_to(player_one.cursor_position) >= 24:
-		draw_line(player_one.pivot_position + player_one.pivot_position.direction_to(player_one.cursor_position) * 24, player_one.cursor_position, Color.html("#ff8000") , 2)
+	if player_one.aiming and player_one.pivot_position.distance_to(player_one.cursor_position) >= 28:
+		draw_line(player_one.pivot_position + player_one.pivot_position.direction_to(player_one.cursor_position) * 28, player_one.cursor_position, Color.html("#ff8000") , 2)
 
-	if player_two.aiming and player_two.pivot_position.distance_to(player_two.cursor_position) >= 24:
-		draw_line(player_two.pivot_position + player_two.pivot_position.direction_to(player_two.cursor_position) * 24, player_two.cursor_position, Color.html("#00a19c"), 2)
+	if player_two.aiming and player_two.pivot_position.distance_to(player_two.cursor_position) >= 28:
+		draw_line(player_two.pivot_position + player_two.pivot_position.direction_to(player_two.cursor_position) * 28, player_two.cursor_position, Color.html("#00a19c"), 2)
 
 func _on_start_button_pressed():
 	game_state_machine._on_transition_requested(game_state_machine.current_state, GameState.State.PLAYER1TURN)
