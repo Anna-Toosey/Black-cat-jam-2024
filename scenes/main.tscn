@@ -1,8 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://c1a46qsp40wo3"]
+[gd_scene load_steps=13 format=3 uid="uid://c1a46qsp40wo3"]
 
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_bf1pa"]
 [ext_resource type="PackedScene" uid="uid://bv5aa7ngemdfq" path="res://scenes/track/track.tscn" id="2_20unx"]
 [ext_resource type="PackedScene" uid="uid://6d5et57ymnkr" path="res://scenes/track/finish.tscn" id="4_bvwbf"]
+[ext_resource type="Texture2D" uid="uid://c3hhr13rmavh7" path="res://assets/sprites/player/player1Sat.png" id="5_sipjk"]
+[ext_resource type="Texture2D" uid="uid://dn70r74hhievm" path="res://assets/sprites/player/player2Sat.png" id="6_7bfpk"]
 [ext_resource type="PackedScene" uid="uid://buns2370nmtpv" path="res://scenes/player/player.tscn" id="6_64bo1"]
 [ext_resource type="Script" path="res://scenes/state_managers/game_state_machine.gd" id="7_jpnjc"]
 [ext_resource type="Script" path="res://scenes/state_managers/game_states/game_start_state.gd" id="8_jynkv"]
@@ -25,8 +27,14 @@ scale = Vector2(1.2932, 3.05959)
 [node name="Player1" parent="." groups=["players"] instance=ExtResource("6_64bo1")]
 position = Vector2(149, 189)
 
+[node name="CatSprite" parent="Player1" index="0"]
+texture = ExtResource("5_sipjk")
+
 [node name="Player2" parent="." groups=["players"] instance=ExtResource("6_64bo1")]
 position = Vector2(150, 225)
+
+[node name="CatSprite" parent="Player2" index="0"]
+texture = ExtResource("6_7bfpk")
 
 [node name="GameStateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("7_jpnjc")
@@ -72,3 +80,6 @@ text = "Start Game"
 [connection signal="first_finisher_wins" from="Player2" to="Finish" method="_on_player_2_first_finisher_wins"]
 [connection signal="switch_player_turn" from="Player2" to="." method="_on_player_2_switch_player_turn"]
 [connection signal="pressed" from="UI/StartButton" to="." method="_on_start_button_pressed"]
+
+[editable path="Player1"]
+[editable path="Player2"]
