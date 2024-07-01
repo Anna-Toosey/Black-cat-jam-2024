@@ -707,7 +707,8 @@ animations = [{
 script = ExtResource("1_bf1pa")
 
 [node name="Track" parent="." instance=ExtResource("2_20unx")]
-position = Vector2(481, 291)
+z_index = -1
+position = Vector2(486, 268)
 
 [node name="Finish" parent="." instance=ExtResource("4_bvwbf")]
 position = Vector2(719, 130)
@@ -715,7 +716,7 @@ rotation = -3.13988
 scale = Vector2(1.2932, 3.05959)
 
 [node name="Player1" parent="." groups=["players"] instance=ExtResource("6_64bo1")]
-position = Vector2(149, 189)
+position = Vector2(154, 167)
 
 [node name="YarnAnimatedSprite" parent="Player1/Yarn" index="1"]
 position = Vector2(0, -5)
@@ -723,12 +724,15 @@ sprite_frames = SubResource("SpriteFrames_ry0dl")
 animation = &"rolling"
 frame_progress = 0.21693
 
+[node name="PowerBar" parent="Player1" index="1"]
+tint_progress = Color(0, 0.631373, 0.611765, 1)
+
 [node name="CatSprite" parent="Player1" index="2"]
 sprite_frames = SubResource("SpriteFrames_4yngv")
 animation = &"sat"
 
 [node name="Player2" parent="." groups=["players"] instance=ExtResource("6_64bo1")]
-position = Vector2(150, 225)
+position = Vector2(155, 202)
 
 [node name="YarnCollider" parent="Player2/Yarn" index="0"]
 position = Vector2(-1.5, -0.5)
@@ -738,6 +742,9 @@ position = Vector2(-1, -5)
 sprite_frames = SubResource("SpriteFrames_da68b")
 animation = &"rolling"
 frame_progress = 0.238009
+
+[node name="PowerBar" parent="Player2" index="1"]
+tint_progress = Color(1, 0.501961, 0, 1)
 
 [node name="CatSprite" parent="Player2" index="2"]
 sprite_frames = SubResource("SpriteFrames_3ktta")
