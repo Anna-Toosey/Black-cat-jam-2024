@@ -7,9 +7,6 @@
 [node name="Player" type="Node2D"]
 script = ExtResource("1_56nu0")
 
-[node name="CatSprite" type="Sprite2D" parent="."]
-visible = false
-
 [node name="Yarn" parent="." instance=ExtResource("3_3sxx7")]
 collision_mask = 1
 
@@ -21,5 +18,8 @@ offset_right = 30.0
 offset_bottom = -17.0
 show_percentage = false
 script = ExtResource("4_b5x47")
+
+[node name="CatSprite" type="AnimatedSprite2D" parent="."]
+visible = false
 
 [connection signal="area_entered" from="Yarn" to="." method="_on_yarn_area_entered"]

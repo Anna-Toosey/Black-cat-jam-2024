@@ -30,6 +30,9 @@ var power_direction: int = 1
 signal switch_player_turn
 signal first_finisher_wins
 
+func _ready():
+	cat_sprite.play("sat")
+
 func _process(delta):
 	if not aiming:
 		return
@@ -55,6 +58,8 @@ func _input(event):
 		power_bar.visible = true
 
 	if event.is_action_released("mouse_left"):
+		cat_sprite.visible = true
+		cat_sprite.play("walk")
 		power_bar_active = false
 		new_pivot_position = target_position
 		aiming = false
@@ -85,6 +90,9 @@ func _input(event):
 			return
 		else:
 			switch_player_turn.emit()
+
+		cat_sprite.visible = false
+		cat_sprite.play("sat")
 
 func _on_yarn_area_entered(area):
 	if area.is_in_group("track"):
