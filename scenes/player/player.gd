@@ -53,11 +53,14 @@ func _input(event):
 	if not aiming:
 		return
 
+	yarn.yarn_animated_sprite.play("aiming")
+	
 	if event.is_action_pressed("mouse_left"):
 		power_bar_active = true
 		power_bar.visible = true
 
 	if event.is_action_released("mouse_left"):
+		yarn.yarn_animated_sprite.play("rolling")
 		cat_sprite.visible = true
 		cat_sprite.play("walk")
 		power_bar_active = false
@@ -67,9 +70,9 @@ func _input(event):
 		power_bar.visible = false
 		var yarn_move_tween = get_tree().create_tween()
 		yarn_move_tween.tween_property(yarn, "global_position", Vector2(new_pivot_position), 0.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
-
+		
 		await get_tree().create_timer(0.8).timeout
-
+		yarn.yarn_animated_sprite.play("aiming")
 		var cat_move_tween = get_tree().create_tween()
 		cat_move_tween.tween_property(cat_sprite, "global_position", Vector2(Vector2(new_pivot_position) - pivot_position.direction_to(new_pivot_position) * 16), 0.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 
@@ -93,6 +96,7 @@ func _input(event):
 
 		cat_sprite.visible = false
 		cat_sprite.play("sat")
+		yarn.yarn_animated_sprite.play("idle")
 
 func _on_yarn_area_entered(area):
 	if area.is_in_group("track"):
