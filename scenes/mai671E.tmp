@@ -18,15 +18,17 @@ script = ExtResource("1_bf1pa")
 position = Vector2(265, 163)
 
 [node name="Finish" parent="." instance=ExtResource("4_bvwbf")]
-position = Vector2(401, 253)
-rotation = -3.13988
-scale = Vector2(0.59226, 1)
+position = Vector2(403, 256.7)
 
 [node name="Player1" parent="." groups=["players"] instance=ExtResource("6_64bo1")]
 position = Vector2(105, 144)
+max_power = 10
+power_up_speed = 20
 
 [node name="Player2" parent="." groups=["players"] instance=ExtResource("6_64bo1")]
 position = Vector2(105, 163)
+max_power = 10
+power_up_speed = 20
 
 [node name="GameStateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("7_jpnjc")
@@ -49,7 +51,10 @@ state = 3
 
 [node name="GamePlayer2WinState" type="Node" parent="GameStateMachine"]
 script = ExtResource("10_dgta6")
-state = 4
+
+[node name="Label" type="Label" parent="GameStateMachine"]
+offset_right = 40.0
+offset_bottom = 23.0
 
 [node name="UI" type="Control" parent="."]
 layout_mode = 3

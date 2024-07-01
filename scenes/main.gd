@@ -25,3 +25,9 @@ func _on_player_1_switch_player_turn():
 
 func _on_player_2_switch_player_turn():
 	game_state_machine._on_transition_requested(game_state_machine.current_state, GameState.State.PLAYER1TURN)
+
+func _on_finish_player_one_wins():
+	game_state_machine._on_transition_requested(game_state_machine.current_state, GameState.State.PLAYER1WIN)
+
+func _on_finish_player_two_wins():
+	game_state_machine._on_transition_requested(game_state_machine.current_state, GameState.State.PLAYER2WIN)

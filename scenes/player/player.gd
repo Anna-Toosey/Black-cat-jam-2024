@@ -1,26 +1,34 @@
 extends Node2D
 
+#Components
 @onready var cat_sprite = $CatSprite
 @onready var power_bar = $PowerBar
 @onready var yarn = $Yarn
 
-var aiming: bool = false
+#win/lose vars
+@onready var turn_count: int
+@onready var travel_distance: float = 0
+var last_turn: bool = false
+var finished: bool = false
+var race_ended: bool = false
 
+#Aiming/moving vars
+var aiming: bool = false
 var pivot_position: Vector2
 var cursor_position: Vector2
 var target_position: Vector2i
 var new_pivot_position: Vector2i
-var old_position: Vector2
+var collision_position: Vector2
 
+#Power vars
 var power_bar_active: bool = false
 @export var max_power: int = 10
 var power: float = 0
 var power_direction: int = 1
 @export var power_up_speed: int = 20
 
-var collision_position: Vector2
-
 signal switch_player_turn
+signal first_finisher_wins
 
 func _process(delta):
 	if not aiming:
@@ -47,7 +55,6 @@ func _input(event):
 		power_bar.visible = true
 
 	if event.is_action_released("mouse_left"):
-		old_position = position
 		power_bar_active = false
 		new_pivot_position = target_position
 		aiming = false
@@ -67,21 +74,18 @@ func _input(event):
 		yarn.global_position = position
 
 		power = 0
-		switch_player_turn.emit()
 
 		if yarn.position != collision_position:
-			var yarn_collision_move_tween = get_tree().create_tween()
-			yarn_collision_move_tween.tween_property(yarn, "global_position", Vector2(collision_position), 0.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
-
-			var cat_collision_move_tween = get_tree().create_tween()
-			cat_collision_move_tween.tween_property(cat_sprite, "global_position", Vector2(Vector2(collision_position) - pivot_position.direction_to(collision_position) * 16), 0.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
-
 			position = collision_position
-			yarn.global_position = position
-
 			collision_position = yarn.position
+
+		if last_turn and not finished:
+			first_finisher_wins.emit()
+		elif race_ended:
+			return
+		else:
+			switch_player_turn.emit()
 
 func _on_yarn_area_entered(area):
 	if area.is_in_group("track"):
 		collision_position = position
-
