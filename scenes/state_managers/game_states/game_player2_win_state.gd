@@ -1,7 +1,8 @@
 extends GameState
+@onready var player_2_win = $"../../UI/Player2Win"
 
 func enter():
-	print("player 2 wins")
+		player_2_win.visible = true
 	
 func exit():
 	pass

@@ -1,4 +1,4 @@
-[gd_scene load_steps=113 format=3 uid="uid://c1a46qsp40wo3"]
+[gd_scene load_steps=117 format=3 uid="uid://c1a46qsp40wo3"]
 
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_bf1pa"]
 [ext_resource type="PackedScene" uid="uid://bv5aa7ngemdfq" path="res://scenes/track/track.tscn" id="2_20unx"]
@@ -20,6 +20,10 @@
 [ext_resource type="Script" path="res://scenes/state_managers/game_states/game_player2_turn_state.gd" id="10_w5hi6"]
 [ext_resource type="Script" path="res://scenes/state_managers/game_states/game_player1_win_state.gd" id="11_rs5y5"]
 [ext_resource type="Texture2D" uid="uid://bnt716gmjm2at" path="res://assets/sprites/yarn/blueYarnMoving-Sheet.png" id="12_xh33f"]
+[ext_resource type="Texture2D" uid="uid://csmrrfys1w3qk" path="res://assets/sprites/ui/playButton.png" id="21_si3cs"]
+[ext_resource type="Texture2D" uid="uid://eu1cgsak8dde" path="res://assets/sprites/ui/background.png" id="21_sr38v"]
+[ext_resource type="Texture2D" uid="uid://mh8b8c30phor" path="res://assets/sprites/ui/player1Win.png" id="23_8y3vi"]
+[ext_resource type="Texture2D" uid="uid://c4lwi7pgmkgpf" path="res://assets/sprites/ui/player2Win.png" id="24_klmrw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ba0jl"]
 atlas = ExtResource("5_jkntl")
@@ -768,13 +772,33 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="StartButton" type="Button" parent="UI"]
+[node name="TitleBackground" type="TextureRect" parent="UI"]
 layout_mode = 0
-offset_left = 442.0
-offset_top = 254.0
-offset_right = 538.0
-offset_bottom = 285.0
-text = "Start Game"
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("21_sr38v")
+
+[node name="StartButton" type="TextureButton" parent="UI"]
+layout_mode = 0
+offset_left = 348.0
+offset_top = 358.0
+offset_right = 592.0
+offset_bottom = 401.0
+texture_normal = ExtResource("21_si3cs")
+
+[node name="Player1Win" type="TextureRect" parent="UI"]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("23_8y3vi")
+
+[node name="Player2Win" type="TextureRect" parent="UI"]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("24_klmrw")
 
 [connection signal="player_one_wins" from="Finish" to="." method="_on_finish_player_one_wins"]
 [connection signal="player_two_wins" from="Finish" to="." method="_on_finish_player_two_wins"]
