@@ -15,18 +15,18 @@
 script = ExtResource("1_bf1pa")
 
 [node name="Track" parent="." instance=ExtResource("2_20unx")]
-position = Vector2(265, 163)
+position = Vector2(481, 291)
 
 [node name="Finish" parent="." instance=ExtResource("4_bvwbf")]
-position = Vector2(401, 253)
+position = Vector2(719, 130)
 rotation = -3.13988
-scale = Vector2(0.59226, 1)
+scale = Vector2(1.2932, 3.05959)
 
 [node name="Player1" parent="." groups=["players"] instance=ExtResource("6_64bo1")]
-position = Vector2(105, 144)
+position = Vector2(149, 189)
 
 [node name="Player2" parent="." groups=["players"] instance=ExtResource("6_64bo1")]
-position = Vector2(105, 163)
+position = Vector2(150, 225)
 
 [node name="GameStateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("7_jpnjc")
@@ -59,10 +59,10 @@ offset_bottom = 40.0
 
 [node name="StartButton" type="Button" parent="UI"]
 layout_mode = 0
-offset_left = 217.0
-offset_top = 168.0
-offset_right = 313.0
-offset_bottom = 199.0
+offset_left = 442.0
+offset_top = 254.0
+offset_right = 538.0
+offset_bottom = 285.0
 text = "Start Game"
 
 [connection signal="player_one_wins" from="Finish" to="." method="_on_finish_player_one_wins"]
